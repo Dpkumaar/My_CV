@@ -1,0 +1,62 @@
+<<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Instagram Story</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="five.css">
+    </head>
+    <body>
+                <div id="card">
+                    <div id="full-screen"></div>
+                    <div id="storiya">
+                        
+                    </div>
+                </div>
+
+                </div>
+        
+        <script>
+                var arr = [
+                    {dp:"./Kriti.jpg",
+                        story:"./Kriti1.jpg"},
+
+                        {dp:"./Kriti1.jpeg",
+                        story:"./Kriti2.jpg"},
+
+                        {dp:"./Kriti2.jpeg",
+                        story:"./Kriti3.jpg"},
+
+                        {dp:"./Kriti3.jpeg",
+                        story:"./Kriti1.jpg"},
+
+                        {dp:"./Kriti.jpg",
+                        story:"./Kriti1.jpg"},
+                ]
+
+                var storiya = document.querySelector("#storiya")
+                var clutter = ""
+
+
+                arr.forEach(function(elem, idx){
+                        clutter += `<div class="story">
+                            <img id="${idx}" src="${elem.dp}" alt="">
+                        </div>`
+                })
+
+                storiya.innerHTML = clutter
+                
+                storiya.addEventListener("click", function(dets){
+                    document.querySelector("#full-screen").style.display =`block`
+                    document.querySelector("#full-screen").style.backgroundImage = `url(${arr[dets.target.id].story})`
+                
+                    setTimeout(function(){
+                    document.querySelector("#full-screen").style.display = `none`
+                })
+                
+                });
+        </script>
+    </body>
+</html>
